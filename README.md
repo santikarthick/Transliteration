@@ -7,6 +7,6 @@ JQuery,
 Bootstrap,
 HTML
 
-# Note: Using smartphones give a better Experience
+# Note: Using smartphones give a better Experience, Alphabets(block letters and small letters) can violate the translation. 
 
 Thankyou by karthikeyan
