@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    
+	<title>Transliteration</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+  <script type="text/javascript">
+		 
+      $(document).ready(function() {
+	  
+	  var tamil,hindi,malayalam,telugu,bengali,gujarati,kannada,marathi,punjabi,nepali;
+	  
+	 
+        $('#u').keydown(function(e) {
+       
+	   
+	   
+       if (e.keyCode == '13') {  
+            
+			var com=$('#combo').val();
+			
+			
+    switch (com) { 
+	case 'tamil': 
+		$.fn.Tamil();
+		break;
+	case 'hindi':
+	    $.fn.Hindi();
+		break;
+	case 'malayalam':
+	    $.fn.Malayalam();
+		break;
+	case 'telugu':
+	    $.fn.Telugu();
+		break;
+	case 'bengali':
+	    $.fn.Bengali();
+		break;
+	case 'gujarati':
+	    $.fn.Gujarati();
+		break;
+	case 'kannada':
+	    $.fn.Kannada();
+		break;
+	case 'marathi':
+	    $.fn.Marathi();
+		break;
+	case 'punjabi':
+	    $.fn.Punjabi();
+		break;
+	case 'nepali':
+	    $.fn.Nepali();
+		break;
+	default:
+		alert('No Language Selected');
+}
+			
+}
+		  
+		  $('.tamildiv').click(function(){
+ 
+		  $('#u1').append(' '+tamil);
+		  tamil="";
+		  
+		  });	
+		  
+		  
+		  $('.hindidiv').click(function(){
+ 
+		  $('#u1').append(' '+hindi);
+		  hindi="";
+		  
+		  
+		  });	
+	      
+		  $('.malayalamdiv').click(function(){
+ 
+		  $('#u1').append(' '+malayalam);
+		  malayalam="";
+		  
+		  
+		  });	
+		  
+		  $('.telugudiv').click(function(){
+ 
+		  $('#u1').append(' '+telugu);
+		  telugu="";
+		  
+		  
+		  });	
+		  
+		  $('.bengalidiv').click(function(){
+ 
+		  $('#u1').append(' '+bengali);
+		  bengali="";
+		  
+		  
+		  });	
+		  	
+
+           $('.gujaratidiv').click(function(){
+ 
+		  $('#u1').append(' '+gujarati);
+		  gujarati="";
+		  
+		  
+		  });	
+		  
+		  
+		  $('.kannadadiv').click(function(){
+ 
+		  $('#u1').append(' '+kannada);
+		  kannada="";
+		  
+		  
+		  });	
+		  
+		  $('.marathidiv').click(function(){
+ 
+		  $('#u1').append(' '+marathi);
+		  marathi="";
+		  
+		  
+		  });	
+		  
+		  $('.punjabidiv').click(function(){
+ 
+		  $('#u1').append(' '+punjabi);
+		  punjabi="";
+		  
+		  
+		  });
+
+          $('.nepalidiv').click(function(){
+ 
+		  $('#u1').append(' '+nepali);
+		  nepali="";
+		  
+		  
+		  });			  
+		  
+		  
+		 });
+		 
+		 
+		
+	/******************************************Functions*************************************/ 
+	
+    /******************tamil*******************/	
+		 
+	$.fn.Tamil=function(){
+	
+	 $(".malayalamdiv").html("");
+	 $(".hindidiv").html("");
+	 $(".bengalidiv").html("");
+	 $(".telugudiv").html("");
+	 $(".marathidiv").html("");
+	 $(".gujaratidiv").html("");
+	 $(".kannadadiv").html("");
+	 $(".punjabidiv").html("");
+	 $(".nepalidiv").html("");
+	  
+	  var i=$('#u').val();
+		 
+    $.getJSON('http://146.148.85.67/processWordJSON?inString='+i+'&lang=tamil', function(data) {
+	
+	 tamil = `${data.itrans}`
+	 
+	 $(".tamildiv").html("Suggestion: "+tamil);
+	
+	});
+	};
+	/******************************************/
+	
+	/******************hindi*******************/	
+		 
+	$.fn.Hindi=function(){
+	 
+	  $(".tamildiv").html("");
+	 $(".malayalamdiv").html("");
+	 $(".bengalidiv").html("");
+	 $(".telugudiv").html("");
+	 $(".marathidiv").html("");
+	 $(".gujaratidiv").html("");
+	 $(".kannadadiv").html("");
+	 $(".punjabidiv").html("");
+	 $(".nepalidiv").html("");
+	  var i=$('#u').val();
+		 
+    $.getJSON('http://146.148.85.67/processWordJSON?inString='+i+'&lang=hindi', function(data) {
+	
+	 hindi = `${data.itrans}`
+	 
+	 $(".hindidiv").html("Suggestion: "+hindi);
+	
+	});
+	};
+	/******************************************/
+	
+	/******************malayalam*******************/	
+		 
+	$.fn.Malayalam=function(){
+	 
+	 
+	 $(".tamildiv").html("");
+	 $(".hindidiv").html("");
+	 $(".bengalidiv").html("");
+	 $(".telugudiv").html("");
+	 $(".marathidiv").html("");
+	 $(".gujaratidiv").html("");
+	 $(".kannadadiv").html("");
+	 $(".punjabidiv").html("");
+	 $(".nepalidiv").html("");
+	 
+	  var i=$('#u').val();
+		 
+    $.getJSON('http://146.148.85.67/processWordJSON?inString='+i+'&lang=malayalam', function(data) {
+	
+	 malayalam = `${data.itrans}`
+	 
+	 $(".malayalamdiv").html("Suggestion: "+malayalam);
+	
+	});
+	};
+	/******************************************/
+	
+	/******************Telugu*******************/	
+		 
+	$.fn.Telugu=function(){
+	 
+	 
+	 $(".tamildiv").html("");
+	 $(".hindidiv").html("");
+	 $(".bengalidiv").html("");
+	 $(".malayalamdiv").html("");
+	 $(".marathidiv").html("");
+	 $(".gujaratidiv").html("");
+	 $(".kannadadiv").html("");
+	 $(".punjabidiv").html("");
+	 $(".nepalidiv").html("");
+	 
+	  var i=$('#u').val();
+		 
+    $.getJSON('http://146.148.85.67/processWordJSON?inString='+i+'&lang=telugu', function(data) {
+	
+	telugu = `${data.itrans}`
+	 
+	 $(".telugudiv").html("Suggestion: "+telugu);
+	
+	});
+	};
+	/******************************************/
+	
+	/******************bengali*******************/	
+		 
+	$.fn.Bengali=function(){
+	 
+	 
+	 $(".tamildiv").html("");
+	 $(".hindidiv").html("");
+	 $(".malayalamdiv").html("");
+	 $(".telugudiv").html("");
+	 $(".marathidiv").html("");
+	 $(".gujaratidiv").html("");
+	 $(".kannadadiv").html("");
+	 $(".punjabidiv").html("");
+	 $(".nepalidiv").html("");
+	 
+	  var i=$('#u').val();
+		 
+    $.getJSON('http://146.148.85.67/processWordJSON?inString='+i+'&lang=bengali', function(data) {
+	
+	 bengali = `${data.itrans}`
+	 
+	 $(".bengalidiv").html("Suggestion: "+bengali);
+	
+	});
+	};
+	/******************************************/
+	
+	
+	/******************gujarati*******************/	
+		 
+	$.fn.Gujarati=function(){
+	 
+	 
+	 $(".tamildiv").html("");
+	 $(".hindidiv").html("");
+	 $(".malayalamdiv").html("");
+	 $(".telugudiv").html("");
+	 $(".marathidiv").html("");
+	 $(".bengalidiv").html("");
+	 $(".kannadadiv").html("");
+	 $(".punjabidiv").html("");
+	 $(".nepalidiv").html("");
+	 
+	  var i=$('#u').val();
+		 
+    $.getJSON('http://146.148.85.67/processWordJSON?inString='+i+'&lang=gujarati', function(data) {
+	
+	 gujarati = `${data.itrans}`
+	 
+	 $(".gujaratidiv").html("Suggestion: "+gujarati);
+	
+	});
+	};
+	/******************************************/
+	
+	/******************kannada*******************/	
+		 
+	$.fn.Kannada=function(){
+	 
+	 
+	 $(".tamildiv").html("");
+	 $(".hindidiv").html("");
+	 $(".malayalamdiv").html("");
+	 $(".telugudiv").html("");
+	 $(".marathidiv").html("");
+	 $(".gujaratidiv").html("");
+	 $(".bengalidiv").html("");
+	 $(".punjabidiv").html("");
+	 $(".nepalidiv").html("");
+	 
+	  var i=$('#u').val();
+		 
+    $.getJSON('http://146.148.85.67/processWordJSON?inString='+i+'&lang=kannada', function(data) {
+	
+	 kannada = `${data.itrans}`
+	 
+	 $(".kannadadiv").html("Suggestion: "+kannada);
+	
+	});
+	};
+	/******************************************/
+	
+	 /******************marathi*******************/	
+		 
+	$.fn.Marathi=function(){
+	
+	 $(".malayalamdiv").html("");
+	 $(".hindidiv").html("");
+	 $(".bengalidiv").html("");
+	 $(".telugudiv").html("");
+	 $(".tamildiv").html("");
+	 $(".gujaratidiv").html("");
+	 $(".kannadadiv").html("");
+	 $(".punjabidiv").html("");
+	 $(".nepalidiv").html("");
+	  
+	  var i=$('#u').val();
+		 
+    $.getJSON('http://146.148.85.67/processWordJSON?inString='+i+'&lang=marathi', function(data) {
+	
+	marathi = `${data.itrans}`
+	 
+	 $(".marathidiv").html("Suggestion: "+marathi);
+	
+	});
+	};
+	/******************************************/
+	
+	 /******************punjabi*******************/	
+		 
+	$.fn.Punjabi=function(){
+	
+	 $(".malayalamdiv").html("");
+	 $(".hindidiv").html("");
+	 $(".bengalidiv").html("");
+	 $(".telugudiv").html("");
+	 $(".marathidiv").html("");
+	 $(".gujaratidiv").html("");
+	 $(".kannadadiv").html("");
+	 $(".tamildiv").html("");
+	 $(".nepalidiv").html("");
+	  
+	  var i=$('#u').val();
+		 
+    $.getJSON('http://146.148.85.67/processWordJSON?inString='+i+'&lang=punjabi', function(data) {
+	
+	 punjabi = `${data.itrans}`
+	 
+	 $(".punjabidiv").html("Suggestion: "+punjabi);
+	
+	});
+	};
+	/******************************************/
+	 /******************nepali*******************/	
+		 
+	$.fn.nepali=function(){
+	
+	 $(".malayalamdiv").html("");
+	 $(".hindidiv").html("");
+	 $(".bengalidiv").html("");
+	 $(".telugudiv").html("");
+	 $(".marathidiv").html("");
+	 $(".gujaratidiv").html("");
+	 $(".kannadadiv").html("");
+	 $(".punjabidiv").html("");
+	 $(".tamildiv").html("");
+	  
+	  var i=$('#u').val();
+		 
+    $.getJSON('http://146.148.85.67/processWordJSON?inString='+i+'&lang=nepali', function(data) {
+	
+	nepali = `${data.itrans}`
+	 
+	 $(".nepalidiv").html(nepali);
+	
+	});
+	};
+	/******************************************/
+	
+
+	 });  
+
+   
+    </script>
+  </head>
+  <body>
+  
+  
+  
+  <div class="container">
+ <div class="card bg-warning text-white">
+    <div class="card-body text-center"><h3>Transliteration</h3></div>
+  </div>
+  
+    
+  
+  <p id="u1">Click Suggestion to Make Paragragh!</p></br></br></br></br>
+  
+  
+  
+  <div class="tamildiv"></div>
+  <div class="hindidiv"></div>
+  <div class="malayalamdiv"></div>
+  <div class="telugudiv"></div>
+  <div class="bengalidiv"></div>
+  <div class="gujaratidiv"></div>
+  <div class="kannadadiv"></div>
+  <div class="marathidiv"></div>
+  <div class="punjabidiv"></div>
+  <div class="nepalidiv"></div>
+
+   
+    <div class="card bg-primary text-white">
+    <div class="card-body"><h2>Select Language</h2></div>
+ 
+ <select id="combo" class="dropdown">
+ 
+ <option value="tamil">Tamil</option>
+ <option value="hindi">Hindi</option>
+ <option value="malayalam">Malayalam</option>
+ <option value="telugu">Telugu</option>
+ <option value="bengali">Bengali</option>
+ <option value="gujarati">Gujarati</option>
+ <option value="kannada">Kannada</option>
+ <option value="marathi">Marathi</option>
+ <option value="punjabi">punjabi</option>
+ <option value="nepali">Nepali</option>
+ 
+ </select> 
+  </div>
+ </div>
+<br>
+
+ <div class="card  bg-light text-dark">
+    <div class="card-body text-center"><input id="u" type="text" placeholder="Type and Give Enter"></div>
+  </div>
+    
+	
+
+</body>
+</html>
