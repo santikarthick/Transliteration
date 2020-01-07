@@ -1,6 +1,9 @@
 
 
 
+
+
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -23,136 +26,101 @@
 		 
       $(document).ready(function() {
 	  
-	  var tamil="",hindi="",malayalam="",telugu="",bengali="",gujarati="",kannada="",marathi="",punjabi="",nepali="";
+	  var word1="",word2="",word3="",word4="",word5="",s1="",s2="",s3="",s4="",s5="",lang;
+	  $("#o1").hide();
+	$("#o2").hide();
+	$("#o3").hide();
+	$("#o4").hide();
+	$("#o5").hide();
 	  
 	    
-        $('#u').keydown(function(e) {
        
-	   
-       if (e.keyCode == '13') {  
+	    $("#u").keypress(function(){
+      
             
 			var com=$('#combo').val();
 			
 			
     switch (com) { 
 	case 'tamil': 
-		$.fn.Tamil();
+	    lang="tamil";
+		$.fn.Language();
 		break;
 	case 'hindi':
-	    $.fn.Hindi();
+	   lang="hindi";
+		$.fn.Language();
 		break;
 	case 'malayalam':
-	    $.fn.Malayalam();
+	    lang="malayalam";
+		$.fn.Language();
 		break;
 	case 'telugu':
-	    $.fn.Telugu();
+	    lang="telugu";
+		$.fn.Language();
 		break;
 	case 'bengali':
-	    $.fn.Bengali();
-		break;
+	    lang="bengali";
+		$.fn.Language();
 	case 'gujarati':
-	    $.fn.Gujarati();
+	    lang="gujarathi";
+		$.fn.Language();
 		break;
 	case 'kannada':
-	    $.fn.Kannada();
+	    lang="kannada";
+		$.fn.Language();
 		break;
 	case 'marathi':
-	    $.fn.Marathi();
+	    lang="marati";
+		$.fn.Language();
 		break;
 	case 'punjabi':
-	    $.fn.Punjabi();
+	    lang="punjabi";
+		$.fn.Language();
 		break;
 	case 'nepali':
-	    $.fn.Nepali();
+	   lang="nepali";
+		$.fn.Language();
 		break;
 	default:
 		alert('No Language Selected');
 }
 			
-}
-		  
-		  $('span').click(function(){
- 
-		  $('#u1').append(' '+tamil);
-		  tamil="";
-		  
-		  });	
-		  
-		  
-		  $('span').click(function(){
- 
-		  $('#u1').append(' '+hindi);
-		  hindi="";
-		  
-		  
-		  });	
-	      
-		  $('span').click(function(){
- 
-		  $('#u1').append(' '+malayalam);
-		  malayalam="";
-		  
-		  
-		  });	
-		  
-		  $('span').click(function(){
- 
-		  $('#u1').append(' '+telugu);
-		  telugu="";
-		  
-		  
-		  });	
-		  
-		  $('span').click(function(){
- 
-		  $('#u1').append(' '+bengali);
-		  bengali="";
-		  
-		  
-		  });	
-		  	
 
-           $('span').click(function(){
- 
-		  $('#u1').append(' '+gujarati);
-		  gujarati="";
 		  
+		  $('#o1').click(function(){
+ 
+		  $('#u1').append(' '+word1);
+		  word1="";
 		  
 		  });	
 		  
-		  
-		  $('span').click(function(){
+		   $('#o2').click(function(){
  
-		  $('#u1').append(' '+kannada);
-		  kannada="";
-		  
+		  $('#u1').append(' '+word2);
+		  word2="";
 		  
 		  });	
 		  
-		  $('span').click(function(){
+		   $('#03').click(function(){
  
-		  $('#u1').append(' '+marathi);
-		  marathi="";
-		  
+		  $('#u1').append(' '+word3);
+		  word3="";
 		  
 		  });	
 		  
-		  $('span').click(function(){
+		   $('#o4').click(function(){
  
-		  $('#u1').append(' '+punjabi);
-		  punjabi="";
+		  $('#u1').append(' '+word4);
+		  word4="";
 		  
+		  });	
 		  
-		  });
-
-          $('span').click(function(){
+		   $('#o5').click(function(){
  
-		  $('#u1').append(' '+nepali);
-		  nepali="";
+		  $('#u1').append(' '+word5);
+		  word5="";
 		  
-		  
-		  });			  
-		  
+		  });	
 		  
 		 });
 		 
@@ -162,194 +130,120 @@
 	
     /******************tamil*******************/	
 		 
-	$.fn.Tamil=function(){
-	
-	 $("span").html("");
-	 
+	$.fn.Language=function(){
+		  
+	  var k=$('#u').val();
 	  
-	  var i=$('#u').val();
+	   var myjson;
 		 
-    $.getJSON('http://146.148.85.67/processWordJSON?inString='+i+'&lang=tamil', function(data) {
+    $.getJSON('http://146.148.85.67/processWordJSON?inString='+k+'&lang='+lang, function(data) {
 	
-	 tamil = `${data.itrans}`
-	 
-	 $("span").html(tamil);
-	
-	});
-	};
-	/******************************************/
-	
-	/******************hindi*******************/	
-		 
-	$.fn.Hindi=function(){
-	 
-	  $("span").html("");
-	
-	  var i=$('#u').val();
-		 
-    $.getJSON('http://146.148.85.67/processWordJSON?inString='+i+'&lang=hindi', function(data) {
-	
-	 hindi = `${data.itrans}`
-	 
-	 $("span").html(hindi);
-	
-	});
-	};
-	/******************************************/
-	
-	/******************malayalam*******************/	
-		 
-	$.fn.Malayalam=function(){
-	 
-	 
-		 $("span").html("");
-	 
-	  var i=$('#u').val();
-		 
-    $.getJSON('http://146.148.85.67/processWordJSON?inString='+i+'&lang=malayalam', function(data) {
-	
-	 malayalam = `${data.itrans}`
-	 
-	 $("span").html(malayalam);
-	
-	});
-	};
-	/******************************************/
-	
-	/******************Telugu*******************/	
-		 
-	$.fn.Telugu=function(){
-	 
-	 
-	 	 $("span").html("");
-	 
-	  var i=$('#u').val();
-		 
-    $.getJSON('http://146.148.85.67/processWordJSON?inString='+i+'&lang=telugu', function(data) {
-	
-	telugu = `${data.itrans}`
-	 
-	 $("span").html(telugu);
-	
-	});
-	};
-	/******************************************/
-	
-	/******************bengali*******************/	
-		 
-	$.fn.Bengali=function(){
-	 
-	 
-	  $("span").html("");
-	  
-	  var i=$('#u').val();
-		 
-    $.getJSON('http://146.148.85.67/processWordJSON?inString='+i+'&lang=bengali', function(data) {
-	
-	 bengali = `${data.itrans}`
-	 
-	 $("span").html(bengali);
-	
-	});
-	};
-	/******************************************/
-	
-	
-	/******************gujarati*******************/	
-		 
-	$.fn.Gujarati=function(){
-	 
-	 
-		 $("span").html("");
-	 
-	  var i=$('#u').val();
-		 
-    $.getJSON('http://146.148.85.67/processWordJSON?inString='+i+'&lang=gujarati', function(data) {
-	
-	 gujarati = `${data.itrans}`
-	 
-	 $("span").html(gujarati);
-	
-	});
-	};
-	/******************************************/
-	
-	/******************kannada*******************/	
-		 
-	$.fn.Kannada=function(){
-	 
-	 $("span").html("");
-	 
-	  var i=$('#u').val();
-		 
-    $.getJSON('http://146.148.85.67/processWordJSON?inString='+i+'&lang=kannada', function(data) {
-	
-	 kannada = `${data.itrans}`
-	 
-	 $("span").html(kannada);
-	
-	});
-	};
-	/******************************************/
-	
-	 /******************marathi*******************/	
-		 
-	$.fn.Marathi=function(){
-	
-	 	$("span").html("");
-	  
-	  var i=$('#u').val();
-		 
-    $.getJSON('http://146.148.85.67/processWordJSON?inString='+i+'&lang=marathi', function(data) {
-	
-	marathi = `${data.itrans}`
-	 
-	 $("span").html(marathi);
-	
-	});
-	};
-	/******************************************/
-	
-	 /******************punjabi*******************/	
-		 
-	$.fn.Punjabi=function(){
-	
-	 $("span").html("");
-	  
-	  var i=$('#u').val();
-		 
-    $.getJSON('http://146.148.85.67/processWordJSON?inString='+i+'&lang=punjabi', function(data) {
-	
-	 punjabi = `${data.itrans}`
-	 
-	 $("span").html(punjabi);
-	
-	});
-	};
-	/******************************************/
-	 /******************nepali*******************/	
-		 
-	$.fn.Nepali=function(){
-	
-     $("span").html("");
-	  
-	  var i=$('#u').val();
-		 
-    $.getJSON('http://146.148.85.67/processWordJSON?inString='+i+'&lang=nepali', function(data) {
-	
-	nepali = `${data.itrans}`
-	 
-	 $("span").html(nepali);
-	
-	});
-	};
-	/******************************************/
-	
+	 myjson=data;
 
+
+    for(var i=1;i<=k.length;i++)
+	{
+	 
+	   if(`${myjson.twords[0].options[0]}`=='undefined')
+	    {
+	    $("#o1").hide();
+		}
+		else
+		{
+		s1 = `${myjson.twords[0].options[0]}`
+		$("#o1").show();
+		word1=s1;
+	    $("#o1").html(s1);
+		
+	    }
+		
+	  
+	   
+	  
+		if(`${myjson.twords[0].options[1]}`=='undefined')
+	    {
+	    $("#o2").hide();
+		}
+		else
+		{
+		s2 = `${myjson.twords[0].options[1]}`
+		$("#o2").show();
+		word2=s2;
+	    $("#o2").html(s2);
+		
+	    }
+		
+	  
+	    if(`${myjson.twords[0].options[2]}`=='undefined')
+	    {
+        $("#o3").hide();
+	    
+        }
+		else
+		{
+		s3 = `${myjson.twords[0].options[2]}`
+		$("#o3").show();
+		word3=s3;
+	    $("#o3").html(s3);
+	    }
+	  
+	   if(`${myjson.twords[0].options[3]}`=='undefined')
+	    {
+        $("#o4").hide();
+	    
+        }
+		else
+		{
+		s4 = `${myjson.twords[0].options[3]}`
+		$("#o4").show();
+		word4=s4;
+	    $("#o4").html(s4);
+	    }
+	   
+	   
+	    if(`${myjson.twords[0].options[4]}`=='undefined')
+	    {
+        $("#o5").hide();
+	    
+        }
+		else
+		{
+		s5 = `${myjson.twords[0].options[4]}`
+		$("#o5").show();
+		word5=s5;
+	    $("#o5").html(s5);
+	    }
+	  
+	}
+
+	
+	});
+	};
+	/******************************************/
+	
+	
 	 });  
 
    
     </script>
+	<style>
+	input[type="text"],
+select.form-control {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #000000;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  border-radius: 0;
+}
+
+input[type="text"]:focus,
+select.form-control:focus {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+</style>
   </head>
   <body>
   
@@ -359,9 +253,10 @@
  <div class="page-header">
     <h1>Transliteration</h1>      
   </div>
+
     
    </br></br>
-    <div class="card bg-primary text-white">
+    <div class="card bg-warning text-white">
     <div class="card-body"><h2>Select Language</h2></div>
  
  <select id="combo" class="dropdown">
@@ -379,23 +274,36 @@
  
  </select> 
   </div>
- </div>
+
 <br>
 
- <div class="card  bg-light text-dark">
-    <div class="card-body text-center"><input id="u" type="text" placeholder="Type and Give Enter"></div>
-	<p><h4>Suggestion: <span></span></h4></p>
-  </div>
+ <div class="card bg-primary text-white">
+   <div class="card-body"><h2>Choose Suggestion</h2></div>
+ 
+<select class="dropdown-primary">
+  <option selected>Other suggestions</option>
+  <option id="o1" value="1"></option>
+  <option id="o2" value="2"></option>
+  <option id="o3" value="3"></option>
+  <option id="o4" value="4"></option>
+  <option id="o5" value="5"></option>
+</select>
+</div>
+</br>
+
+
+</br>
+  <center><input id="u" type="text" placeholder="Type and Give Enter">
+ </center>
+ </div>
     
-	
-	  <h4>
-   Your Content:
-  </h4>
-  <textarea name="area2" style="width: 100%;">
+</br>
+  <textarea name="area1" style="width:100%;">
         <p id="u1"></p>
   
 </textarea><br />
-	
+
+
 
 </body>
 </html>
